@@ -30,7 +30,25 @@ defmodule ExDocKatexSample.MixProject do
 
   defp docs do
     [
-      main: "ExDocKatexSample"
+      main: "ExDocKatexSample",
+      before_closing_head_tag: &before_closing_head_tag/1,
+      before_closing_body_tag: &before_closing_body_tag/1
     ]
   end
+
+  defp before_closing_head_tag(:html) do
+    """
+    <!-- HTML injected at the end of the <head> element -->
+    """
+  end
+
+  defp before_closing_head_tag(:epub), do: ""
+
+  defp before_closing_body_tag(:html) do
+    """
+    <!-- HTML injected at the end of the <body> element -->
+    """
+  end
+
+  defp before_closing_body_tag(:epub), do: ""
 end
