@@ -6,6 +6,8 @@ defmodule ExDocKatexSample do
   @doc """
   Hello world.
 
+  $$ x = \\cos \\theta $$
+
   ## Examples
 
       iex> ExDocKatexSample.hello()
